@@ -159,9 +159,13 @@ public class WorldGuardPlugin extends JavaPlugin {
         reg.register(ToggleCommands.class);
         reg.register(ProtectionCommands.class);
 
-        if (!platform.getGlobalStateManager().hasCommandBookGodMode()) {
-            reg.register(GeneralCommands.class);
-        }
+//        This fixes WorldGuard's overshadowing of commands like /god, /locate, etc.
+//        They are already supplied by EssentialsX and Mojang - so no, thank you.
+//        Btw, overshadowing of vanilla /locate is quite bad. Fix that plz (I did)
+//        if (!platform.getGlobalStateManager().hasCommandBookGodMode()) {
+//            reg.register(GeneralCommands.class);
+//        }
+//        AJDE!
 
         getServer().getScheduler().scheduleSyncRepeatingTask(this, sessionManager, BukkitSessionManager.RUN_DELAY, BukkitSessionManager.RUN_DELAY);
 
